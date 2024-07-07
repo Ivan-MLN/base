@@ -52,7 +52,7 @@ const main = async (auth) => {
   sock.ev.on("creds.update", saveCreds);
   if (!sock.authState.creds.registered) {
     await sock.waitForConnectionUpdate((update) => update.qr)
-    let phoneNumber = "6283893964069"
+    let phoneNumber = "62881082925549"
     phoneNumber = phoneNumber.replace(/[^0-9]/g, '')
     let code = await sock.requestPairingCode(phoneNumber)
     code = code?.match(/.{1,4}/g)?.join("-") || code
