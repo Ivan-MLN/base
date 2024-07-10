@@ -25,7 +25,7 @@ const main = async (auth) => {
 
   if (!sock.authState.creds.registered) {
     await sock.waitForConnectionUpdate((update) => update.qr);
-    let phoneNumber = "6283893964069";
+    let phoneNumber = "6283893964069"; //edit number pairing here!
     let code = await sock.requestPairingCode(phoneNumber);
     code = code?.match(/.{1,4}/g)?.join("-") || code;
     console.log(`Your Pairing Code: ${code}`);
