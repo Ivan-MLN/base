@@ -5,7 +5,7 @@ const P = require("pino");
 const NodeCache = require("node-cache");
 
 let msgRetryCounterCache = new NodeCache();
-let owner = ["6282138588935@s.whatsapp.net"];
+let owner = [""]; //add owner here, number@s.whatsapp.net
 
 require("./node_modules/@whiskeysockets/baileys/lib/Utils/generics.js").generateMessageID = () => {
   return require("crypto").randomBytes(14).toString("hex").toUpperCase() + "-DX";
@@ -25,7 +25,7 @@ const main = async (auth) => {
 
   if (!sock.authState.creds.registered) {
     await sock.waitForConnectionUpdate((update) => update.qr);
-    let phoneNumber = "6283893964069"; //edit number pairing here!
+    let phoneNumber = ""; //add your whatsapp account number here! "62xxx"
     let code = await sock.requestPairingCode(phoneNumber);
     code = code?.match(/.{1,4}/g)?.join("-") || code;
     console.log(`Your Pairing Code: ${code}`);
